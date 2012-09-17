@@ -6,7 +6,7 @@
 ( (   ) ) / ( ) \ ( (   ) )
 ( (___) )( /   \ )( (___) )
  \_____/ |/     \| \_____/ 
-yipee for generated ascii text!
+Yipee for generated ascii text...
 
 This is an ascii / ansi editor thingie in the style of 64Pixels. 
 Instead of a game however, it is an editor that you can use to draw ascii art.
