@@ -13,7 +13,7 @@ from pygame.locals import *
 class Inputengine:
     def __init__(self):
         self.eventlist = []
-        self.mousepushes = {1 : False, 2 : False, 3 : False, 13 : False, 12 : False, 23: False}
+        self.mousepushes = {1 : False, 2 : False, 3 : False}
 
     def copybuffer(self):
         for item in pygame.event.get():
@@ -22,31 +22,11 @@ class Inputengine:
 
     def savemouse(self, event):
         if event.type == MOUSEBUTTONDOWN:
+            #print(event.button)
             self.mousepushes[event.button] = True
-
-            if event.button == 1 and self.mousepushes[3]:
-                self.mousepushes[13] = True
-
-            if event.button == 1 and self.mousepushes[2]:
-                self.mousepushes[12] = True
-
-            if event.button == 2 and self.mousepushes[3]:
-                self.mousepushes[23] = True
 
         elif event.type == MOUSEBUTTONUP:
             self.mousepushes[event.button] = False
-
-            if event.button == 1:
-                self.mousepushes[13] = False
-                self.mousepushes[12] = False
-
-            if event.button == 2:
-                self.mousepushes[23] = False
-                self.mousepushes[12] = False
-
-            if event.button == 3:
-                self.mousepushes[23] = False
-                self.mousepushes[13] = False
 
     def getbuffer(self):
         return self.eventlist
@@ -114,14 +94,7 @@ class Inputengine:
         return False
 
     def mouseispushed(self, button):
-        if button == 1 and not self.mousepushes[13] and not self.mousepushes[12]:
-            return self.mousepushes[button]
-
-        if button == 2 and not self.mousepushes[23] and not self.mousepushes[12]:
-            return self.mousepushes[button]
-
-        if button == 3 and not self.mousepushes[13] and not self.mousepushes[23]:
-            return self.mousepushes[button]
+        return self.mousepushes[button] 
 
 
     def killifrequest(self):

@@ -55,8 +55,8 @@ class Winmain:
                     self.placechar = self.chipselector.pick(self.mousehandler.getsurfacepos(self.chipselector.getrect()))
                     self.tv.blit(self.placechar[0], (0, 0))
         
-                if self.inputengine.mouseispushed(3):
-                    self.drawboard.erase(self.mousehandler.getsurfacepos(self.drawboard.getrect()))
+            if self.inputengine.mouseispushed(3):
+                self.drawboard.erase(self.mousehandler.getsurfacepos(self.drawboard.getrect()))
 
             self.inputengine.delbuffer()
 
